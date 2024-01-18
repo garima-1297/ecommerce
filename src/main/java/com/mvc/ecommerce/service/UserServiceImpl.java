@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService{
 
 
-    @Autowired
+
     private UserRepository userRepository;
 
     @Autowired
@@ -19,7 +19,13 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User saveUser(User user) {
-        User theUser = userRepository.saveUser(user);
+        User theUser = userRepository.save(user);
+        return theUser;
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        User theUser = userRepository.findByEmail(email);
         return theUser;
     }
 }
