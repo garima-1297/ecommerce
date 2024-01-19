@@ -28,4 +28,18 @@ public class UserServiceImpl implements UserService{
         User theUser = userRepository.findByEmail(email);
         return theUser;
     }
+
+    @Override
+    public void updateUserByEmail(String email, User user) {
+        User theUser = userRepository.findByEmail(email);
+        theUser.setFirstName(user.getFirstName());
+        theUser.setLastName(user.getLastName());
+        theUser.setRole(user.getRole());
+
+        userRepository.save(theUser);
+    }
+
+    public void deleteUserById(Long Id){
+        userRepository.deleteById(Id);
+    }
 }

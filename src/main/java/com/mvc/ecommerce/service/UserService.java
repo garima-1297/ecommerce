@@ -8,4 +8,7 @@ public interface UserService {
 
     public User saveUser(User user);
     public User findByEmail(String email);
+
+    void updateUserByEmail(String email, User user);
+    void deleteUserById(Long Id);
 }

@@ -35,4 +35,20 @@ public class UserController {
         User theUser = userService.findByEmail(email);
         return theUser;
     }
+
+    //Update user by ID
+    @PutMapping("/updateUser/{email}")
+    public String updateUser(@PathVariable String email, @RequestBody User user)
+    {
+        userService.updateUserByEmail(email, user);
+        return "User Updated";
+    }
+
+    //Delete a User
+    @DeleteMapping("deleteUser/{Id}")
+    public String deleteUser(@PathVariable Long Id){
+        userService.deleteUserById(Id);
+        return "User deleted";
+    }
+
 }
