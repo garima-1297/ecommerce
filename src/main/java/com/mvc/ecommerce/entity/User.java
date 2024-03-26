@@ -106,4 +106,8 @@ public class User {
                 ", role='" + role + '\'' +
                 '}';
     }
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "security_details_security_id")
+    private Security securityDetails;
 }
