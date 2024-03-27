@@ -107,7 +107,15 @@ public class User {
                 '}';
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "security_details_security_id")
     private Security securityDetails;
+
+    public Security getSecurityDetails() {
+        return securityDetails;
+    }
+
+    public void setSecurityDetails(Security securityDetails) {
+        this.securityDetails = securityDetails;
+    }
 }

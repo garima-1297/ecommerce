@@ -1,5 +1,6 @@
 package com.mvc.ecommerce.service;
 
+import com.mvc.ecommerce.entity.Security;
 import com.mvc.ecommerce.entity.User;
 import com.mvc.ecommerce.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,10 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User saveUser(User user) {
+
+        Security security = user.getSecurityDetails();
+        user.setSecurityDetails(security);
+        //user.setSecurityDetails(user.getSecurityDetails());
         User theUser = userRepository.save(user);
         return theUser;
     }

@@ -8,6 +8,7 @@ import javax.annotation.processing.Generated;
 @Table(name="security_details")
 public class Security {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="security_id")
@@ -31,6 +32,10 @@ public class Security {
     public Security(String securityQues, String securityAns) {
         this.securityQues = securityQues;
         this.securityAns = securityAns;
+    }
+
+    public Security(){
+
     }
 
     public void setSecurityId(long securityId) {
