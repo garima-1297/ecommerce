@@ -1,5 +1,6 @@
 package com.mvc.ecommerce.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -21,11 +22,12 @@ public class Product {
     public Product() {
     }
 
-    public Product(long productId, String productName, long productPrice, long productQty) {
+    public Product(long productId, String productName, long productPrice, long productQty, Category category) {
         this.productId = productId;
         this.productName = productName;
         this.productPrice = productPrice;
         this.productQty = productQty;
+        this.categories = category;
     }
 
     public long getProductId() {
@@ -58,5 +60,9 @@ public class Product {
     public void setProductQty(long productQty) {
         this.productQty = productQty;
     }
+
+        @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "category_id")
+    private Category categories;
 
 }
