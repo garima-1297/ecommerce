@@ -39,7 +39,6 @@ public class Category {
     public Category(String categoryName) {
         this.categoryName = categoryName;
     }
-
     @OneToMany(mappedBy = "categories")
     private List<Product> products;
 
